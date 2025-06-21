@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ksca-ui
+  labels:
+    app: ksca-ui
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: ksca-ui
+  template:
+    metadata:
+      labels:
+        app: ksca-ui
+    spec:
+      containers:
+      - name: ksca-ui
+        image: prakash779/ksca-ui:latest
+        ports:
+        - containerPort: 3000
